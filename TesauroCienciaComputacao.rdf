@@ -15,9 +15,6 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:DiretrizesSBC="http://lodlased.unicentro.br/2017/DiretrizesSBC/">
     <owl:Ontology rdf:about="http://lodlased.unicentro.br/2017/DiretrizesSBC">
-        <owl:imports rdf:resource="http://purl.org/pav/2.3"/>
-        <dct:creator>João Pedro Keinar</dct:creator>
-        <dct:creator>Sandro Rautenberg</dct:creator>
         <dct:description xml:lang="pt">Apresenta-se uma proposta de Tesauro para os cursos de Bacharelado em Ciência da Computação. Como uma forma de representação de conhecimento, relaciona os conceitos e definições dos cursos de Ciência da Computação estabelecidas nos Referenciais de Formação para os Cursos de Graduação em Computação - ano 2023. São relacionados os eixos de aprendizagem, suas competências e seus conteúdos didáticos, representados pelo Simple Knowledge Organization Systems.</dct:description>
         <dct:license>MIT License
 
@@ -47,9 +44,11 @@ SOFTWARE.</dct:license>
         <pav:contributedBy>Gabriel do Nascimento de Lima</pav:contributedBy>
         <pav:contributedBy>João Vitor Pieczarka da Silva</pav:contributedBy>
         <pav:contributedBy>Marcos França</pav:contributedBy>
-        <pav:previousVersion>v0.1.0</pav:previousVersion>
-        <pav:version>v0.1.1</pav:version>
-        <owl:versionInfo>Foi feito mantido os indivíduos como estavam na versão anterior, adicionado os contribuintes do Tesauro até o momento e adicionado a licença de software.</owl:versionInfo>
+        <pav:createdBy>João Pedro Keinar</pav:createdBy>
+        <pav:createdBy>Sandro Rautenberg</pav:createdBy>
+        <pav:previousVersion>v0.1.1</pav:previousVersion>
+        <pav:version>v0.1.2</pav:version>
+        <owl:versionInfo>Foi alterado o nome do arquivo para compatibilidade com o banco de dados e usado a pav como Ontology Prefixes.</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -67,7 +66,9 @@ SOFTWARE.</dct:license>
 
     <!-- http://lodlased.unicentro.br/2017/DiretrizesSBC#OWLAnnotationProperty_06e240b0_f7cb_404d_b9eb_2661702c410a -->
 
-    <owl:AnnotationProperty rdf:about="http://lodlased.unicentro.br/2017/DiretrizesSBC#OWLAnnotationProperty_06e240b0_f7cb_404d_b9eb_2661702c410a"/>
+    <owl:AnnotationProperty rdf:about="http://lodlased.unicentro.br/2017/DiretrizesSBC#OWLAnnotationProperty_06e240b0_f7cb_404d_b9eb_2661702c410a">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/creator"/>
+    </owl:AnnotationProperty>
     
 
 
@@ -95,6 +96,18 @@ SOFTWARE.</dct:license>
     
 
 
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
     <!-- http://purl.org/dc/terms/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
@@ -107,6 +120,12 @@ SOFTWARE.</dct:license>
     
 
 
+    <!-- http://purl.org/pav/createdBy -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/pav/createdBy"/>
+    
+
+
     <!-- http://purl.org/pav/previousVersion -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/pav/previousVersion"/>
@@ -115,7 +134,9 @@ SOFTWARE.</dct:license>
 
     <!-- http://purl.org/pav/version -->
 
-    <owl:AnnotationProperty rdf:about="http://purl.org/pav/version"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/pav/version">
+        <rdfs:label>pav:version</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
@@ -198,9 +219,7 @@ SOFTWARE.</dct:license>
 
     <!-- http://lodlased.unicentro.br/2017/DiretrizesSBC#OWLAnnotationProperty_06e240b0_f7cb_404d_b9eb_2661702c410a -->
 
-    <owl:ObjectProperty rdf:about="http://lodlased.unicentro.br/2017/DiretrizesSBC#OWLAnnotationProperty_06e240b0_f7cb_404d_b9eb_2661702c410a">
-        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/creator"/>
-    </owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://lodlased.unicentro.br/2017/DiretrizesSBC#OWLAnnotationProperty_06e240b0_f7cb_404d_b9eb_2661702c410a"/>
     
 
 
