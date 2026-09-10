@@ -25,13 +25,13 @@ Este projeto organiza conceitos desde os fundamentos teóricos até as tecnologi
 
 ## ✨ Principais Recursos
 
-  Estrutura Hierárquica: Os termos são organizados em categorias e subcategorias, mostrando relações de "Termo Genérico" (TG) e "Termo Específico" (TE).
+Estrutura Hierárquica: Os termos são organizados em categorias e subcategorias, mostrando relações de "Termo Genérico" (TG) e "Termo Específico" (TE).
 
-  Relações Semânticas: Mapeamento de "Termos Relacionados" (TR) para conectar conceitos de diferentes ramos da computação.
+Relações Semânticas: Mapeamento de "Termos Relacionados" (TR) para conectar conceitos de diferentes ramos da computação.
 
-  Definições Claras: Cada conceito principal possui uma definição concisa e, sempre que possível, uma referência.
+Definições Claras: Cada conceito principal possui uma definição concisa e, sempre que possível, uma referência.
 
-  Formato Aberto: O tesauro é mantido em um formato legível por máquina (como SKOS/RDF, XML ou JSON), permitindo sua fácil integração com outras ferramentas e sistemas.
+Formato Aberto: O tesauro é mantido em um formato legível por máquina (como SKOS/RDF, XML ou JSON), permitindo sua fácil integração com outras ferramentas e sistemas.
 
 ## 📂 Estrutura do Tesauro
 
@@ -53,11 +53,40 @@ O tesauro é construído sobre o padrão SKOS (Simple Knowledge Organization Sys
 
 Existem algumas maneiras de utilizar este tesauro:
 
-  Navegação Manual: Você pode clonar o repositório e explorar os arquivos de dados diretamente.
+Navegação Manual: Você pode clonar o repositório e explorar os arquivos de dados diretamente.
 
-  Software de Ontologias: Importe o arquivo principal (Tesauro de Ciência da Computação.rdf) em um editor de ontologias como o Protégé para visualizar e navegar na estrutura de forma gráfica.
+Software de Ontologias: Importe o arquivo principal (Tesauro de Ciência da Computação.rdf) em um editor de ontologias como o Protégé para visualizar e navegar na estrutura de forma gráfica.
 
-  Integração em Aplicações: Utilize bibliotecas de programação para manipular RDF (como rdflib para Python ou Apache Jena para Java) para carregar o tesauro e realizar consultas SPARQL em sua aplicação.
+Integração em Aplicações: Utilize bibliotecas de programação para manipular RDF (como rdflib para Python ou Apache Jena para Java) para carregar o tesauro e realizar consultas SPARQL em sua aplicação.
+
+Para dar início a exploração do Tesauro de Ciência da computação, seguem algumas consultas que podem ajudar a nortear sua pesquisa
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX pav: <http://purl.org/pav/>
+
+SELECT ?ontology ?version
+WHERE {
+  ?ontology rdf:type owl:Ontology .
+  ?ontology pav:version ?version .
+}
+```
+> A pesquisa acima mostrará em qual versão o Tesauro de Ciência da Computação se encontra
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX pav: <http://purl.org/pav/>
+
+SELECT ?ontology (GROUP_CONCAT(?contributor; separator=", ") AS ?contributorList)
+WHERE {
+  ?ontology rdf:type owl:Ontology .
+  ?ontology pav:contributedBy ?contributor .
+}
+GROUP BY ?ontology
+```
+> A pesquisa acima mostrará os contribuintes do Tesauro de Ciência da Computação
 
 ## 🛠️ Tecnologias Utilizadas
 
